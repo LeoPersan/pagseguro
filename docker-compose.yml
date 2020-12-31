@@ -1,0 +1,32 @@
+version: '3'
+
+# Named volumes
+volumes:
+  # MySQL Data
+  pagseguro-mysql-data:
+    driver: local
+
+services:
+  # MySQL (5.7)
+  mysql:
+    image: mysql:5.7
+    container_name: pagseguro-mysql
+    volumes:
+      - pagseguro-mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=pagseguro
+      - MYSQL_USER=homestead
+      - MYSQL_PASSWORD=secret
+  app:
+    image: ambientum/php:7.4-nginx
+    container_name: pagseguro-app
+    volumes:
+      - .:/var/www/app
+    ports:
+      - "80:8080"
+      - "443:8083"
+    links:
+      - mysql

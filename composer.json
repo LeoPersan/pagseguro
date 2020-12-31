@@ -1,0 +1,27 @@
+{
+    "name": "leopersan/pagseguro",
+    "description": "Prover um jeito fácil de utilizar a API do PagSeguro",
+    "authors": [
+        {
+            "name": "LeoPersan",
+            "email": "leopso1990@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2.5 || ^8.0",
+        "guzzlehttp/guzzle": "^7.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5.5 || ^9.3.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "LeoPersan\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LeoPersan\\Tests\\": "tests/"
+        }
+    }
+}
