@@ -36,4 +36,9 @@ class PagSeguro
     {
         return $this->session;
     }
+
+    public function importJavascript()
+    {
+        return str_replace('##SESSION##', $this->getSession(), file_get_contents(__DIR__.'/js/PagSeguro.js'));
+    }
 }
